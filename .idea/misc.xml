@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/button_background.xml" value="0.119" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1235" />
+        <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/login_btn.xml" value="0.1055" />
+        <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/signup_btn.xml" value="0.119" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/layout/activity_log_in.xml" value="0.1359375" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/layout/activity_onboarding_screen.xml" value="0.1" />

@@ -6,7 +6,7 @@
     <ImageView
         android:id="@+id/imagini"
         android:layout_width="match_parent"
-        android:layout_height="520dp"
+        android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:src="@drawable/image1"
         android:scaleType="fitXY"
@@ -19,6 +19,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="350dp"
         android:text="@string/text_one"
+        android:textSize="20dp"
         android:textAlignment="center"
         android:textColor="@color/white"
         />

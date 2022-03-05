@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -15,14 +15,16 @@ import androidx.viewpager.widget.PagerAdapter;
 public class ViewPagerAdapter extends PagerAdapter {
 
     Context context;
-    int [] images = {
+    LayoutInflater layoutInflater;
+
+    int[] images = {
       R.drawable.image1,
       R.drawable.image2,
       R.drawable.image3,
     };
 
 
-    int [] texts= {
+    int[] texts= {
       R.string.text_one,
       R.string.text_two,
       R.string.text_three,
@@ -41,13 +43,13 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (LinearLayout) object;
+        return view == (FrameLayout) object;
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
         View view = layoutInflater.inflate(R.layout.slider_layout,container,false);
 
