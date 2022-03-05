@@ -1,20 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnboardingScreen"
-    android:background="@drawable/image1">
+    android:orientation="vertical"
+    tools:context=".OnboardingScreen">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/indicator_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="450dp"/>
 
     <ImageView
-        android:layout_width="185dp"
-        android:layout_height="128dp"
-
+        android:id="@+id/logo_image"
+        android:layout_width="140dp"
+        android:layout_height="81dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170dp"
         android:src="@drawable/logofit" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="480dp"
+        android:layout_marginBottom="-30dp"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="30dp"
+        />
+
+    <Button
+        android:id="@+id/sign_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="530dp"
+        android:text="sign up"
+        android:layout_marginStart="110dp"
+
+        />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:text="log in"
+        android:layout_marginStart="110dp"
+
+        />
 
 
-
-
-</LinearLayout>
+</FrameLayout>
