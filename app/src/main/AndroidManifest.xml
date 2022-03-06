@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp"
         android:screenOrientation="portrait">
-
+        <activity android:name=".OnboardingScreen"/>
         <activity
             android:name=".MainActivity"
-
             android:exported="false" />
         <activity
-            android:name=".OnboardingScreen"
+            android:name=".SplashScreen"
+            android:theme="@style/SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
