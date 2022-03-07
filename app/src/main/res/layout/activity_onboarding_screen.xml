@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OnboardingScreen">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/indicator_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="450dp"/>
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="188dp"
+        android:layout_height="108dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170dp"
+        android:src="@drawable/logofit" />
+
+
+    <Button
+        android:id="@+id/sign_btn"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="490dp"
+        android:text="@string/signup"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/signup_btn"
+        android:textAllCaps="false"
+
+
+        />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:text="@string/login"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:background="@drawable/login_btn"
+        android:textAllCaps="false"
+        />
+
+
+</FrameLayout>

@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">FitApp</string>
-    <string name="hello">Gabi</string>
+    <string name="signupb">Sign Up</string>
+
+
+    //Description
+    <string name="text_one">cevaaaaaaaaaaaa</string>
+    <string name="text_two">Bine ai venit</string>
+    <string name="text_three">alt text motivational</string>
+
+    <string name="signup">Sign Up</string>
+    <string name="login">Log in</string>
 
 </resources>
