@@ -14,6 +14,9 @@
     <string name="forgot_pass">Forgot password?</string>
     <string name="pass">Password</string>
     <string name="email">Email</string>
+    <string name="user_name">User name</string>
+    <string name="confirm_pass">Confirm password</string>
+    <string name="account">I have an account alredy.</string>
 
 
 </resources>

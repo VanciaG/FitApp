@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
-            android:name=".OnboardingScreen"
+            android:name=".LogIn"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LogIn"
+            android:name=".OnboardingScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
