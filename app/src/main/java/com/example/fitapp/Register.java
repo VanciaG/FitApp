@@ -49,10 +49,10 @@ public class Register extends AppCompatActivity {
         login_btn = findViewById(R.id.login);
 
         mAuth=FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() != null){
+        /*if(mAuth.getCurrentUser() != null){
             finish();
             return;
-        }
+        }*/
 
 
 
@@ -132,6 +132,8 @@ public class Register extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Toast.makeText(Register.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent (Register.this, MainActivity.class));
+                                        finish();
                                     }
                                 });
                             }else{
