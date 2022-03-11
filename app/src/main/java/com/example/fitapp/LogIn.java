@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class LogIn extends AppCompatActivity {
 
-    private TextView signup_btn;
+    private TextView signup_btn, resetPass_btn;
     private EditText mEmail, mPassword;
     private FirebaseAuth mAuth;
     private Button loginBtn;
@@ -45,6 +45,7 @@ public class LogIn extends AppCompatActivity {
         mEmail = findViewById(R.id.login_email);
         mPassword = findViewById(R.id.login_pass);
         signup_btn = findViewById(R.id.signup);
+        resetPass_btn = findViewById(R.id.resetPass);
 
         mAuth=FirebaseAuth.getInstance();
         /*if(mAuth.getCurrentUser() != null){
@@ -56,6 +57,15 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LogIn.this, Register.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        resetPass_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LogIn.this,ForgotPassword.class);
                 startActivity(intent);
                 finish();
             }

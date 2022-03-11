@@ -17,6 +17,8 @@
     <string name="user_name">User name</string>
     <string name="confirm_pass">Confirm password</string>
     <string name="account">I have an account alredy.</string>
+    <string name="enterEmail">Enter your email</string>
+    <string name="resetPass">Reset Password</string>
 
 
 </resources>
