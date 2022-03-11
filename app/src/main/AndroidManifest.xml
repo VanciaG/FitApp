@@ -12,6 +12,12 @@
         android:screenOrientation="portrait">
         <activity android:name=".OnboardingScreen"/>
         <activity
+            android:name=".LogIn"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
