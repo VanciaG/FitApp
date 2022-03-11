@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/back_btn.xml" value="0.103" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/btn_login.xml" value="0.135" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/button_background.xml" value="0.119" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/edit_text.xml" value="0.135" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/gradient_background.xml" value="0.135" />
+        <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/ic__arrow_back.xml" value="0.103" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/ic_check.xml" value="0.108" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/ic_email.xml" value="0.135" />
         <entry key="..\:/Users/vanci/AndroidStudioProjects/FitApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1235" />
