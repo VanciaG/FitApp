@@ -111,8 +111,7 @@ public class LogIn extends AppCompatActivity {
                                     if(user.isEmailVerified()) {
                                         startActivity(new Intent(LogIn.this, MainActivity.class));
                                     }else{
-                                        user.sendEmailVerification();
-                                        Toast.makeText(LogIn.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(LogIn.this, "Please verify your email address!", Toast.LENGTH_LONG).show();
                                     }
                                 }else{
                                     Toast.makeText(LogIn.this, "Your credentials are incorrect!", Toast.LENGTH_LONG).show();

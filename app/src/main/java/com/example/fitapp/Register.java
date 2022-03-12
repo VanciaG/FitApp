@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Pattern;
@@ -131,13 +132,18 @@ public class Register extends AppCompatActivity {
                                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        Toast.makeText(Register.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent (Register.this, MainActivity.class));
-                                        finish();
+                                        if (task.isSuccessful()) {
+                                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                            user.sendEmailVerification();
+                                            Toast.makeText(Register.this, "Registered successfully. Please check your email to verify your account!", Toast.LENGTH_LONG).show();
+                                        }else{
+                                            Toast.makeText(Register.this, "Authentication failed!", Toast.LENGTH_LONG).show();
+
+                                        }
                                     }
                                 });
                             }else{
-                                Toast.makeText(Register.this, "Authentication failed", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register.this, "Authentication failed!", Toast.LENGTH_LONG).show();
 
                             }
                         }
