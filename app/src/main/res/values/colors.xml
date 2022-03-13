@@ -11,6 +11,9 @@
     <color name="gray">#25202B</color>
     <color name="gray2">#262429</color>
     <color name="colorTransparentWhite">#cccccc</color>
+    <color name="dark_gray">#89000000</color>
+    <color name="light_gray">#C2B3B3</color>
+
 
 
 

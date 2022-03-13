@@ -8,7 +8,17 @@
     <string name="text_two">Bine ai venit</string>
     <string name="text_three">alt text motivational</string>
 
+    //
     <string name="signup">Sign Up</string>
     <string name="login">Log in</string>
+    <string name="forgot_pass">Forgot password?</string>
+    <string name="pass">Password</string>
+    <string name="email">Email</string>
+    <string name="user_name">User name</string>
+    <string name="confirm_pass">Confirm password</string>
+    <string name="account">I have an account alredy.</string>
+    <string name="enterEmail">Enter your email</string>
+    <string name="resetPass">Reset Password</string>
+
 
 </resources>

@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import android.text.Html;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -48,6 +50,25 @@ public class OnboardingScreen extends AppCompatActivity {
 
         addDotsIndicator(0);
         mSlideViewPager.addOnPageChangeListener(viewListener);
+
+
+        signupbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OnboardingScreen.this, Register.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OnboardingScreen.this, LogIn.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     public void addDotsIndicator(int position){
@@ -72,8 +93,6 @@ public class OnboardingScreen extends AppCompatActivity {
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-
         }
 
         @Override
