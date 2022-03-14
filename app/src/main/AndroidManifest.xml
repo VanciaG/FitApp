@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
-            android:name=".Profile"
+            android:name=".MainScreen"
             android:exported="false" />
         <activity
             android:name=".ForgotPassword"

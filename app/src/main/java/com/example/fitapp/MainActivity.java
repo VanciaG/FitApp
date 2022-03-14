@@ -24,24 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_main);
 
-        setContentView(binding.getRoot());
-
-        binding.bottomNavigator.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.profile:
-                    replaceFragment(new Profile());
-                    break;
-            }
-            return true;
-        });
-
-
-    }
-
-    private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.body_container, fragment).commit();
     }
 }
