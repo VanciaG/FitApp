@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
-            android:name=".MainScreen"
-            android:exported="false" />
+            android:name=".SplashScreen"
+            android:exported="false"
+            android:theme="@style/SplashScreen"/>
         <activity
             android:name=".ForgotPassword"
             android:exported="false" />
@@ -27,9 +28,8 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
-            android:exported="true"
-            android:theme="@style/SplashScreen">
+            android:name=".MainScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
