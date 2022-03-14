@@ -19,6 +19,10 @@
     <string name="account">I have an account alredy.</string>
     <string name="enterEmail">Enter your email</string>
     <string name="resetPass">Reset Password</string>
+    <string name="home">Home</string>
+    <string name="workouts">Workouts</string>
+    <string name="water">Water</string>
+    <string name="profile">Profile</string>
 
 
 </resources>
