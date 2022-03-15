@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profileFragment"
     tools:context=".ProfileFragment">
 
     <LinearLayout
@@ -29,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/user_name"
-                android:textSize="25sp"
+                android:textSize="23sp"
                 android:textColor="@color/light_gray"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="80dp"/>
@@ -45,10 +46,11 @@
                 android:orientation="vertical">
             
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/measurements_btn"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:text="  Measurements"
-                android:textSize="22sp"
+                android:textSize="17sp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textAlignment="textStart"
@@ -64,10 +66,11 @@
                 />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/personal_info_btn"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:text="  Personal Info"
-                android:textSize="22sp"
+                android:textSize="17sp"
                 android:textAllCaps="false"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
@@ -77,16 +80,16 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:background="@drawable/buttons"
-                android:backgroundTint="#280f73"
+                android:backgroundTint="#32116b"
                 android:drawableStart="@drawable/ic_person"
                 android:drawableEnd="@drawable/ic_arrow"
                 />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:text="  Log out"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:paddingStart="20dp"
@@ -101,12 +104,12 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:text="  Delete account"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:paddingStart="5dp"
+                android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:textAlignment="textStart"
                 android:layout_marginTop="15dp"

@@ -11,9 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
+            android:name=".AddMeasurements"
+            android:exported="false" />
+        <activity
+            android:name=".Measurements"
+            android:exported="false" />
+        <activity
+            android:name=".PersonalInfo"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreen"
             android:exported="false"
-            android:theme="@style/SplashScreen"/>
+            android:theme="@style/SplashScreen" />
         <activity
             android:name=".ForgotPassword"
             android:exported="false" />
