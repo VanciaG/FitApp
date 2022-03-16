@@ -40,13 +40,7 @@ public class Measurements extends AppCompatActivity {
         backPersonalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Measurements.this, "Apasat!", Toast.LENGTH_LONG).show();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container_measurements, HomeFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack(null)
-                        .commit();
+                finish();
             }
         });
     }
