@@ -13,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:orientation="horizontal"
-        android:background="@color/dark_blue"
-        >
+        android:background="@color/dark_blue">
 
         <TextView
             android:id="@+id/back_personal_info"
@@ -22,8 +21,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_arrow_back"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            />
+            android:layout_marginTop="30dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,8 +30,7 @@
             android:textSize="25sp"
             android:layout_marginTop="37dp"
             android:textColor="@color/white"
-            android:layout_marginStart="20dp"
-            />
+            android:layout_marginStart="20dp" />
 
     </LinearLayout>
 
@@ -49,7 +46,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gender"
+        android:text="@string/gender"
         android:textSize="13sp"
         android:textColor="@color/white" />
 
@@ -61,25 +58,23 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"
+                android:text="@string/male"
                 android:button="@color/colorTransparentWhite"
                 android:background="@drawable/radio_selector_btn"
                 android:textColor="@drawable/radio_text_color"
                 android:elevation="4dp"
                 android:padding="10dp"
-                android:layout_margin="10dp"
-                />
+                android:layout_margin="10dp" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"
+                android:text="@string/female"
                 android:button="@color/colorTransparentWhite"
                 android:background="@drawable/radio_selector_btn"
                 android:textColor="@drawable/radio_text_color"
                 android:padding="10dp"
-                android:layout_margin="10dp"
-                />
+                android:layout_margin="10dp" />
         </RadioGroup>
 
         <TextView
@@ -123,8 +118,7 @@
             android:textColor="@color/white"
             android:textSize="13sp"
             android:text="@string/activityLevel"
-            android:layout_marginTop="16dp"
-            />
+            android:layout_marginTop="16dp" />
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -134,40 +128,39 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sedentary"
+                android:text="@string/sedentary"
                 android:textSize="13sp"
                 android:textColor="@color/white"
                 android:padding="10dp"
-                android:layout_margin="5dp"
-                />
+                android:layout_margin="5dp"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lightly Active"
+                android:text="@string/lightlyActive"
                 android:textSize="13sp"
                 android:textColor="@color/white"
                 android:padding="10dp"
-                android:layout_margin="5dp"
-                />
+                android:layout_margin="5dp"/>
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Moderately Active"
+                android:text="@string/moderatelyActive"
                 android:textSize="13sp"
                 android:textColor="@color/white"
                 android:padding="10dp"
-                android:layout_margin="5dp"
-                />
+                android:layout_margin="5dp" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Very Active"
+                android:text="@string/veryActive"
                 android:textSize="13sp"
                 android:textColor="@color/white"
                 android:padding="10dp"
-                android:layout_margin="5dp"
-                />
+                android:layout_margin="5dp"/>
+
         </RadioGroup>
 
         <Button
@@ -183,6 +176,7 @@
 
 
     </LinearLayout>
+
     </ScrollView>
 
 

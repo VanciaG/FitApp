@@ -31,6 +31,15 @@
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="bodyFatPercentage">Body Fat Percentage</string>
+    <string name="date">Date</string>
+    <string name="save">Save</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="sedentary">Sedentary</string>
+    <string name="lightlyActive">Lightly Active</string>
+    <string name="moderatelyActive">Moderately Active</string>
+    <string name="veryActive">Very Active</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_meas">Meas</string>
@@ -39,6 +48,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
 
 
 </resources>
