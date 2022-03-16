@@ -13,7 +13,7 @@ import com.example.fitapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    //ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
