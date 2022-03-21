@@ -20,13 +20,16 @@
             android:name=".PersonalInfo"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/SplashScreen" />
+             />
         <activity
             android:name=".ForgotPassword"
             android:exported="false" />
-        <activity android:name=".OnboardingScreen" />
+        <activity
+            android:name=".OnboardingScreen"
+            android:exported="false"
+            />
         <activity
             android:name=".LogIn"
             android:exported="false" />
@@ -34,11 +37,12 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainScreen"
             android:exported="false" />
         <activity
-            android:name=".MainScreen"
-            android:exported="true">
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

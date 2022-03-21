@@ -51,11 +51,13 @@
         android:textColor="@color/white" />
 
         <RadioGroup
+            android:id="@+id/profile_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/radio_male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/male"
@@ -67,6 +69,7 @@
                 android:layout_margin="10dp" />
 
             <RadioButton
+                android:id="@+id/radio_female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/female"
@@ -86,6 +89,7 @@
             android:layout_marginTop="16dp"/>
 
         <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
@@ -103,6 +107,7 @@
             android:layout_marginTop="16dp"/>
 
         <EditText
+            android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
@@ -121,11 +126,13 @@
             android:layout_marginTop="16dp" />
 
         <RadioGroup
+            android:id="@+id/activity_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/sedentary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sedentary"
@@ -135,6 +142,7 @@
                 android:layout_margin="5dp"/>
 
             <RadioButton
+                android:id="@+id/lightly_active"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lightlyActive"
@@ -144,6 +152,7 @@
                 android:layout_margin="5dp"/>
 
             <RadioButton
+                android:id="@+id/moderately_active"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/moderatelyActive"
@@ -153,6 +162,7 @@
                 android:layout_margin="5dp" />
 
             <RadioButton
+                android:id="@+id/very_active"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/veryActive"
