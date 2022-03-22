@@ -3,19 +3,28 @@ package com.example.fitapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class ProfileFragment extends Fragment {
     private FirebaseAuth mAuth;
+    private TextView userNameProfile;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,7 +36,15 @@ public class ProfileFragment extends Fragment {
         AppCompatButton measurementsBtn = view.findViewById(R.id.measurements_btn);
         AppCompatButton log_outBtn = view.findViewById(R.id.logout);
 
+        userNameProfile = view.findViewById(R.id.userName);
+
         mAuth=FirebaseAuth.getInstance();
+
+        //String userID = mAuth.getCurrentUser().getUid();
+        //showUserName(userID);
+
+        userNameProfile.setText(this.getArguments().getString("username"));
+        //userNameProfile.setText(this.getArguments().getString("user_name"));
 
         personalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,9 +70,24 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
         return view;
     }
+
+    /*private void showUserName(String userID){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userID);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String username = String.valueOf(snapshot.child("userName").getValue());
+                userNameProfile.setText(username);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //Toast.makeText(ProfileFragment.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+            }
+        });
+    }*/
 
 
 }

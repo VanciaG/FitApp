@@ -15,8 +15,10 @@ import android.widget.Toast;
 
 public class Measurements extends AppCompatActivity {
 
-    Button addMeasurementsBtn;
-    TextView backPersonalInfoBtn;
+    private Button addMeasurementsBtn;
+    private TextView backPersonalInfoBtn, dateW, dateH, dateP;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +31,20 @@ public class Measurements extends AppCompatActivity {
 
         addMeasurementsBtn = findViewById(R.id.addBtn);
         backPersonalInfoBtn = findViewById(R.id.back_personal_info);
+        dateW = findViewById(R.id.date1);
+        dateH = findViewById(R.id.date2);
+        dateP = findViewById(R.id.date3);
+
+        String date = getIntent().getStringExtra("date");
+        dateW.setText(date);
+        dateH.setText(date);
+        dateP.setText(date);
 
         addMeasurementsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AddMeasurements.class));
+                finish();
             }
         });
 
