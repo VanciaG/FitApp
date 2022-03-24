@@ -126,8 +126,6 @@ public class PersonalInfo extends AppCompatActivity{
                 //bundle.putString("user_name", username);
 
 
-                String la = age.getText().toString().trim();
-                Log.d("ceva", "age = " + la );
 
                 if(textGender.equals("Male")){
                     radioButtonGenderSelected = findViewById(R.id.radio_male);

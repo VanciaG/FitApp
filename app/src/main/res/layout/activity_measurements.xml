@@ -67,13 +67,23 @@
                 android:layout_marginTop="5dp" />
 
             <TextView
+                android:id="@+id/weightM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-- kg"
+                android:text="--"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kg"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -106,14 +116,24 @@
                 />
 
         <TextView
+            android:id="@+id/heightM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="--- cm"
+            android:text="---"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" cm"
+            android:textColor="@color/light_gray"
+            android:textSize="15sp"
+            android:layout_marginStart="46dp"
+            android:layout_marginTop="40dp"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -146,13 +166,23 @@
                 android:layout_marginTop="5dp" />
 
             <TextView
+                android:id="@+id/body_fatM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-- %"
+                android:text="--"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"/>
 
 
         </androidx.cardview.widget.CardView>

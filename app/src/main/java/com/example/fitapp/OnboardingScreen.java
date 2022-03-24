@@ -55,7 +55,7 @@ public class OnboardingScreen extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
 
-        if(mAuth.getCurrentUser() != null) {
+        if(mAuth.getCurrentUser() != null && mAuth.getCurrentUser().isEmailVerified()) {
             startActivity(new Intent(OnboardingScreen.this, MainScreen.class));
             finish();
             return;

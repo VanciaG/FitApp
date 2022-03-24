@@ -21,10 +21,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class ProfileFragment extends Fragment {
     private FirebaseAuth mAuth;
     private TextView userNameProfile;
+    private CircleImageView imageProfile;
+    private AppCompatButton personalInfoBtn, measurementsBtn, log_outBtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,13 +36,13 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        AppCompatButton personalInfoBtn = view.findViewById(R.id.personal_info_btn);
-        AppCompatButton measurementsBtn = view.findViewById(R.id.measurements_btn);
-        AppCompatButton log_outBtn = view.findViewById(R.id.logout);
+         personalInfoBtn = view.findViewById(R.id.personal_info_btn);
+         measurementsBtn = view.findViewById(R.id.measurements_btn);
+         log_outBtn = view.findViewById(R.id.logout);
+         userNameProfile = view.findViewById(R.id.userName);
+         imageProfile = view.findViewById(R.id.profile_image);
 
-        userNameProfile = view.findViewById(R.id.userName);
-
-        mAuth=FirebaseAuth.getInstance();
+         mAuth=FirebaseAuth.getInstance();
 
         //String userID = mAuth.getCurrentUser().getUid();
         //showUserName(userID);
@@ -61,6 +65,17 @@ public class ProfileFragment extends Fragment {
         });
 
         log_outBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                startActivity(new Intent(getActivity(), OnboardingScreen.class));
+                getActivity().finish();
+
+            }
+        });
+
+
+        imageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
