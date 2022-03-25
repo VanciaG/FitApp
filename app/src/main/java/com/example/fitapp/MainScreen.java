@@ -27,6 +27,7 @@ public class MainScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Bundle bundle = new Bundle();
     BottomNavigationView bottomNavigationView;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,10 @@ public class MainScreen extends AppCompatActivity {
 
         String userID = mAuth.getCurrentUser().getUid();
         showUserName(userID);
+
+        //name = bundle.getString("user_name");
+        //bundle.putString("username", name);
+
 
         loadFragment(new HomeFragment());
 

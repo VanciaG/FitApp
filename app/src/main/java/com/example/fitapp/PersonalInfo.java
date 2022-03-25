@@ -2,6 +2,8 @@ package com.example.fitapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -73,9 +75,8 @@ public class PersonalInfo extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 addData(userID);
-                //ProfileFragment profileFragment = new ProfileFragment();
-                //profileFragment.setArguments(bundle);
                 finish();
+
             }
         });
 
@@ -100,6 +101,9 @@ public class PersonalInfo extends AppCompatActivity{
         map.put("userName", username);
 
         databaseReference.child(userID).updateChildren(map);
+
+        //bundle.putString("user_name", username);
+
 
     }
 
