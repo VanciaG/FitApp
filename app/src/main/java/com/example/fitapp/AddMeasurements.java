@@ -1,5 +1,6 @@
 package com.example.fitapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -11,10 +12,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -24,6 +29,7 @@ public class AddMeasurements extends AppCompatActivity {
     private DatePickerDialog picker;
     private Button saveBtn;
     private String user_weight, user_height, user_body_fat, dateMeasurements;
+    private boolean k = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,15 +86,36 @@ public class AddMeasurements extends AppCompatActivity {
         user_height = height.getText().toString().trim();
         user_body_fat = bodyFatPercentage.getText().toString().trim();
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements");
-
         HashMap<String, Object> map = new HashMap<>();
         map.put("date", dateMeasurements);
         map.put("weight", user_weight);
         map.put("height", user_height);
         map.put("bodyFatPercentage", user_body_fat);
 
-        databaseReference.child(userID).push().updateChildren(map);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements").child(userID);
 
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String dateString = String.valueOf(dataSnapshot.child("date").getValue());
+
+                    if (dateMeasurements.equals(dateString)) {
+                        String key = dataSnapshot.getKey();
+                        databaseReference.child(key).updateChildren(map);
+                        k = false;
+                    }
+                }
+
+                if(k){
+                    databaseReference.push().updateChildren(map);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(AddMeasurements.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
