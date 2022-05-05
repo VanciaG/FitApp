@@ -11,9 +11,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
+            android:name=".AddMeasurements"
+            android:exported="false" />
+        <activity
+            android:name=".Measurements"
+            android:exported="false" />
+        <activity
+            android:name=".PersonalInfo"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+             />
+        <activity
             android:name=".ForgotPassword"
             android:exported="false" />
-        <activity android:name=".OnboardingScreen" />
+        <activity
+            android:name=".OnboardingScreen"
+            android:exported="false"
+            />
         <activity
             android:name=".LogIn"
             android:exported="false" />
@@ -21,7 +37,7 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainScreen"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"

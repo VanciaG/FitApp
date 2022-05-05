@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class OnboardingScreen extends AppCompatActivity {
 
     ViewPager mSlideViewPager;
@@ -23,7 +25,7 @@ public class OnboardingScreen extends AppCompatActivity {
     Button loginbtn, signupbtn;
     TextView[] dots;
     ViewPagerAdapter viewPagerAdapter;
-
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,14 @@ public class OnboardingScreen extends AppCompatActivity {
 
         addDotsIndicator(0);
         mSlideViewPager.addOnPageChangeListener(viewListener);
+
+        mAuth=FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null && mAuth.getCurrentUser().isEmailVerified()) {
+            startActivity(new Intent(OnboardingScreen.this, MainScreen.class));
+            finish();
+            return;
+        }
 
 
         signupbtn.setOnClickListener(new View.OnClickListener() {
