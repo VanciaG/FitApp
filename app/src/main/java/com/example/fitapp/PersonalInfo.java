@@ -76,7 +76,6 @@ public class PersonalInfo extends AppCompatActivity{
             public void onClick(View view) {
                 addData(userID);
                 finish();
-
             }
         });
 
@@ -160,5 +159,6 @@ public class PersonalInfo extends AppCompatActivity{
             }
         });
     }
+
 
 }

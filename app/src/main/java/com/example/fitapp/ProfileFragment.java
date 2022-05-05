@@ -1,9 +1,13 @@
 package com.example.fitapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -16,10 +20,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class ProfileFragment extends Fragment {
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private TextView userNameProfile;
     private CircleImageView imageProfile;
     private AppCompatButton personalInfoBtn, measurementsBtn, log_outBtn;
+    private static final int REQ_CAMERA_CODE = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,19 +32,13 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-         personalInfoBtn = view.findViewById(R.id.personal_info_btn);
-         measurementsBtn = view.findViewById(R.id.measurements_btn);
-         log_outBtn = view.findViewById(R.id.logout);
-         userNameProfile = view.findViewById(R.id.userName);
-         imageProfile = view.findViewById(R.id.profile_image);
-
-         mAuth=FirebaseAuth.getInstance();
-
-        //String userID = mAuth.getCurrentUser().getUid();
-        //showUserName(userID);
+        personalInfoBtn = view.findViewById(R.id.personal_info_btn);
+        measurementsBtn = view.findViewById(R.id.measurements_btn);
+        log_outBtn = view.findViewById(R.id.logout);
+        userNameProfile = view.findViewById(R.id.userName);
+        imageProfile = view.findViewById(R.id.profile_image);
 
         userNameProfile.setText(this.getArguments().getString("username"));
-        //userNameProfile.setText(this.getArguments().getString("user_name"));
 
         personalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,34 +64,40 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
-        imageProfile.setOnClickListener(new View.OnClickListener() {
+        /*imageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
-                startActivity(new Intent(getActivity(), OnboardingScreen.class));
-                getActivity().finish();
+                boolean pick = true;
+                if(pick == true){
+                    if(!checkCameraPermission()){
+                        requestCameraPermission();
+                    } else PickImage();
+                }else{
+                    if(!checkStoragePermission()){
+                        requestStoragePermission();
+                    } else PickImage();
+                }
 
             }
-        });
+        });*/
+
 
         return view;
     }
 
-    /*private void showUserName(String userID){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userID);
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String username = String.valueOf(snapshot.child("userName").getValue());
-                userNameProfile.setText(username);
-            }
+    /*private boolean checkCameraPermission(){
+        boolean res1 = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED;
+        boolean res2 = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED;
+        return res1 && res2;
+    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //Toast.makeText(ProfileFragment.this, "Something went wrong!", Toast.LENGTH_LONG).show();
-            }
-        });
+    private boolean checkStoragePermission(){
+        boolean res2 = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED;
+        return res2;
+    }
+
+    private void requestCameraPermission(){
+        ;
     }*/
 
 

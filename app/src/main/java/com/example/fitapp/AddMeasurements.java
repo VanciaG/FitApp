@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,12 +25,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class AddMeasurements extends AppCompatActivity {
+public class AddMeasurements extends AppCompatActivity implements View.OnClickListener {
     private EditText date, weight, height, bodyFatPercentage;
     private DatePickerDialog picker;
     private Button saveBtn;
+    private TextView backBtn;
     private String user_weight, user_height, user_body_fat, dateMeasurements;
     private boolean k = true;
+    private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,40 +50,45 @@ public class AddMeasurements extends AppCompatActivity {
         height = findViewById(R.id.height);
         bodyFatPercentage = findViewById(R.id.body_fat);
         saveBtn = findViewById(R.id.saveBtn_personalInfo);
+        backBtn = findViewById(R.id.back_personal_info);
 
-        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
-                int year = calendar.get(Calendar.YEAR);
-
-                picker = new DatePickerDialog(AddMeasurements.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        date.setText(day + "/" + (month + 1) + "/" + year);
-                    }
-                }, year, month, day);
-                picker.show();
-            }
-        });
-
-
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addData(userID);
-                startActivity(new Intent(AddMeasurements.this, Measurements.class));
-                finish();
-            }
-        });
+        date.setOnClickListener(this);
+        saveBtn.setOnClickListener(this);
+        backBtn.setOnClickListener(this);
     }
 
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.date:
+                setDate();
+                break;
+            case R.id.saveBtn_personalInfo:
+                addData();
+                startActivity(new Intent(AddMeasurements.this, Measurements.class));
+                finish();
+                break;
+            case R.id.back_personal_info:
+                startActivity(new Intent(this, Measurements.class));
+                break;
+        }
+    }
 
-    private void addData(String userID){
+    private void setDate(){
+        final Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+
+        picker = new DatePickerDialog(AddMeasurements.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                date.setText(day + "/" + (month + 1) + "/" + year);
+            }
+        }, year, month, day);
+        picker.show();
+    }
+
+    private void addData(){
         dateMeasurements = date.getText().toString();
         user_weight = weight.getText().toString().trim();
         user_height = height.getText().toString().trim();

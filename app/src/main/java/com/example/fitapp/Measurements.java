@@ -34,6 +34,7 @@ public class Measurements extends AppCompatActivity {
     private Button addMeasurementsBtn;
     private TextView backPersonalInfoBtn, dateW, dateH, dateP, weight, height, bodyFatPercentage;
     private String childKey = new String();
+    public Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +73,6 @@ public class Measurements extends AppCompatActivity {
                 finish();
             }
         });
-
 
     }
 

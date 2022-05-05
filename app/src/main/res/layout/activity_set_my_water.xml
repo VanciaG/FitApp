@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SetMyWater"
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/dark_blue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_my_water"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="460dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="460dp"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_weight"
+                android:textSize="13sp"
+                android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/my_weight"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_input"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:paddingStart="15dp"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" kg"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"/>
+
+            <RadioGroup
+                android:id="@+id/weather_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_hot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hot"
+                    android:button="@color/colorTransparentWhite"
+                    android:background="@drawable/radio_selector_btn"
+                    android:textColor="@drawable/radio_text_color"
+                    android:elevation="4dp"
+                    android:padding="10dp"
+                    android:layout_margin="10dp" />
+
+                <RadioButton
+                    android:id="@+id/radio_cold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cold"
+                    android:button="@color/colorTransparentWhite"
+                    android:background="@drawable/radio_selector_btn"
+                    android:textColor="@drawable/radio_text_color"
+                    android:padding="10dp"
+                    android:layout_margin="10dp" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_quantity"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/default_quantity"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_input"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:paddingStart="15dp"
+                    android:inputType="number"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ml"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wakeup"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/time1"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_input"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:paddingStart="15dp"
+                android:focusable="false"
+                android:textAllCaps="true"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/go_to_bed"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/time2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_input"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:paddingStart="15dp"
+                android:focusable="false"
+                android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/calculate"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:text="@string/calculate_water"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_login"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/suggested_quantity"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/suggested_quantity"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_input"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:paddingStart="15dp"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ml"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <Button
+                android:id="@+id/saveBtn_water"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="@string/set_my_water"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_login"
+                android:layout_gravity="end"
+                android:layout_marginTop="0dp" />
+
+
+    </LinearLayout>
+</LinearLayout>

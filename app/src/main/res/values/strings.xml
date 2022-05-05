@@ -40,6 +40,19 @@
     <string name="lightlyActive">Lightly Active</string>
     <string name="moderatelyActive">Moderately Active</string>
     <string name="veryActive">Very Active</string>
+    <string name="set_my_water">Set My Water</string>
+    <string name="weather">Weather Type</string>
+    <string name="suggested_quantity">Suggested quantity of water</string>
+    <string name="default_quantity">Default quantity</string>
+    <string name="hot">Hot</string>
+    <string name="cold">Cold</string>
+    <string name="wakeup">I wake up at</string>
+    <string name="go_to_bed">I go to bed at</string>
+    <string name="my_weight">My weight is</string>
+    <string name="my_water">My Water</string>
+    <string name="calculate_water">Calculate</string>
+    <string name="alert_setting">Alert Setting</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_meas">Meas</string>
@@ -48,7 +61,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
 
 
 </resources>
