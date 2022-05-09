@@ -3,6 +3,7 @@ package com.example.fitapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,8 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -38,11 +38,10 @@ import java.util.Map;
 public class SetMyWater extends AppCompatActivity {
     private EditText myWeight, defaultQuantity, suggestedQuantity, wakeUpTime, sleepTime;
     private Button calculateBtn, setMyWater;
-    private RadioGroup weather;
-    private RadioButton radioButtonWeatherSelected;
-    private String weight, gender, activityLevel, childKey, textWeather, quantity;
+    private String weight, gender, activityLevel, childKey, quantity;
     int t1Hour, t1Minute, t2Hour, t2Minute, water = 0, default_quantity = 200;
     private Date date1, date2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +57,6 @@ public class SetMyWater extends AppCompatActivity {
         suggestedQuantity = findViewById(R.id.suggested_quantity);
         wakeUpTime = findViewById(R.id.time1);
         sleepTime = findViewById(R.id.time2);
-        weather = findViewById(R.id.weather_type);
         calculateBtn = findViewById(R.id.calculate);
         setMyWater = findViewById(R.id.saveBtn_water);
 
@@ -68,7 +66,6 @@ public class SetMyWater extends AppCompatActivity {
 
         getWeight(userID);
         getData(userID);
-        readWeather();
 
         wakeUpTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +111,7 @@ public class SetMyWater extends AppCompatActivity {
                                     date2= f24Hours.parse(time);
                                     SimpleDateFormat f12Hours = new SimpleDateFormat("hh:mm aa");
                                     sleepTime.setText(f12Hours.format(date2));
+                                    //Log.d("ceva", "a1 =  " + date2);
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
@@ -158,17 +156,16 @@ public class SetMyWater extends AppCompatActivity {
                     cal.add(Calendar.MINUTE, b);
                     String newTime = f12Hours.format(cal.getTime());
                     hours.add(newTime);
-                    //Log.d("ceva", "d1 = " + newTime);
+                    Log.d("ceva", "d1 = " + newTime);
                     try {
                         date1 = f24Hours.parse(newTime);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+
                 }
 
-
-                //aici trebuie sa fac partea de trimitere de notificari
-
+                Toast.makeText(SetMyWater.this, "Successfully saved!", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(SetMyWater.this, AlertSetting.class);
                 intent.putExtra("arrayHours", hours);
@@ -190,10 +187,11 @@ public class SetMyWater extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                     weight = String.valueOf(dataSnapshot.child("weight").getValue());
-                     myWeight.setText(weight);
-                }
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        weight = String.valueOf(dataSnapshot.child("weight").getValue());
+                        myWeight.setText(weight);
+                    }
+
             }
 
             @Override
@@ -212,31 +210,32 @@ public class SetMyWater extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.getValue() != null) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        String k = dataSnapshot.getKey();
+                        String dateString = String.valueOf(dataSnapshot.child("date").getValue());
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String k = dataSnapshot.getKey();
-                    String dateString = String.valueOf(dataSnapshot.child("date").getValue());
+                        Date date = null;
+                        try {
+                            date = format.parse(dateString);
+                        } catch (ParseException e) {
+                            Log.d("Exception: ", e.getMessage());
+                        }
 
-                    Date date = null;
-                    try {
-                        date = format.parse(dateString);
-                    } catch (ParseException e) {
-                        Log.d("Exception: ", e.getMessage());
+                        map.put(k, date);
+
                     }
 
-                    map.put(k, date);
+                    Date latest = Collections.max(map.values());
 
-                }
-
-                Date latest = Collections.max(map.values());
-
-                for (Map.Entry<String, Date> entry : map.entrySet()) {
-                    if ((entry.getValue()).compareTo(latest) == 0) {
-                        childKey = entry.getKey();
+                    for (Map.Entry<String, Date> entry : map.entrySet()) {
+                        if ((entry.getValue()).compareTo(latest) == 0) {
+                            childKey = entry.getKey();
+                        }
                     }
-                }
 
-                showWeight(userID);
+                    showWeight(userID);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -250,9 +249,10 @@ public class SetMyWater extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                gender = String.valueOf(snapshot.child("gender").getValue());
-                activityLevel = String.valueOf(snapshot.child("activityLevel").getValue());
+                if (snapshot.getValue() != null) {
+                    gender = String.valueOf(snapshot.child("gender").getValue());
+                    activityLevel = String.valueOf(snapshot.child("activityLevel").getValue());
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -260,24 +260,6 @@ public class SetMyWater extends AppCompatActivity {
             }
         });
     }
-
-    private void readWeather(){
-        Log.d("ceva", "aici" );
-        int selectedWeatherID = weather.getCheckedRadioButtonId();
-        radioButtonWeatherSelected = findViewById(selectedWeatherID);
-        Log.d("ceva", "aici1" );
-        //textWeather = radioButtonWeatherSelected.getText().toString();
-        //String textWeather = radioButtonWeatherSelected.getText().toString();
-        //Log.d("ceva", "aici2" + textWeather);
-       // Log.d("ceva", "aici2" + textWeather);
-
-        /*if(textWeather.equals("Hot")){
-            radioButtonWeatherSelected = findViewById(R.id.radio_hot);
-        } else if (textWeather.equals("Cold")) {
-            radioButtonWeatherSelected = findViewById(R.id.radio_cold);
-        }*/
-    }
-
 
     private void calculateWater (String gender, String weight, String activityLevel){
         if(gender.equals("Female")){

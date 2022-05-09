@@ -56,8 +56,14 @@ public class Measurements extends AppCompatActivity {
         bodyFatPercentage = findViewById(R.id.body_fatM);
 
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements").child(userID);
+
+
+
 
         lastUpdate(userID);
+
+
 
         addMeasurementsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +82,6 @@ public class Measurements extends AppCompatActivity {
 
     }
 
-
     private void lastUpdate(String userID){
         HashMap<String, Date> map = new HashMap<>();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -86,32 +91,33 @@ public class Measurements extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.getValue() != null) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        String k = dataSnapshot.getKey();
+                        String dateString = String.valueOf(dataSnapshot.child("date").getValue());
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String k = dataSnapshot.getKey();
-                    String dateString = String.valueOf(dataSnapshot.child("date").getValue());
+                        Date date = null;
+                        try {
+                            date = format.parse(dateString);
+                        } catch (ParseException e) {
+                            Log.d("Exception: ", e.getMessage());
+                        }
 
-                    Date date = null;
-                    try {
-                        date = format.parse(dateString);
-                    } catch (ParseException e) {
-                        Log.d("Exception: ", e.getMessage());
+                        map.put(k, date);
+
                     }
 
-                    map.put(k, date);
+                    Date latest = Collections.max(map.values());
 
-                }
-
-                Date latest = Collections.max(map.values());
-
-                for (Map.Entry<String, Date> entry : map.entrySet()) {
-                    if ((entry.getValue()).compareTo(latest) == 0) {
-                        childKey = entry.getKey();
+                    for (Map.Entry<String, Date> entry : map.entrySet()) {
+                        if ((entry.getValue()).compareTo(latest) == 0) {
+                            childKey = entry.getKey();
+                        }
                     }
+
+                    showData(userID);
+
                 }
-
-                showData(userID);
-
             }
 
             @Override

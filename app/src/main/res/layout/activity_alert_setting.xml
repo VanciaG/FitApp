@@ -23,6 +23,21 @@
             android:layout_marginTop="20dp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_btn"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:text="@string/notification"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"

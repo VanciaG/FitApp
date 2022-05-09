@@ -1,30 +1,37 @@
 package com.example.fitapp;
 
-import android.Manifest;
+
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import de.hdodenhof.circleimageview.CircleImageView;
-
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileFragment extends Fragment {
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseAuth mAuth;
+    private FirebaseUser firebaseUser;
     private TextView userNameProfile;
-    private CircleImageView imageProfile;
-    private AppCompatButton personalInfoBtn, measurementsBtn, log_outBtn;
-    private static final int REQ_CAMERA_CODE = 1;
+    private AppCompatButton personalInfoBtn, measurementsBtn, log_outBtn, delete_Btn;
+    private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,10 +42,14 @@ public class ProfileFragment extends Fragment {
         personalInfoBtn = view.findViewById(R.id.personal_info_btn);
         measurementsBtn = view.findViewById(R.id.measurements_btn);
         log_outBtn = view.findViewById(R.id.logout);
+        delete_Btn = view.findViewById(R.id.delete);
         userNameProfile = view.findViewById(R.id.userName);
-        imageProfile = view.findViewById(R.id.profile_image);
 
         userNameProfile.setText(this.getArguments().getString("username"));
+
+        mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
+
 
         personalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,41 +75,78 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        /*imageProfile.setOnClickListener(new View.OnClickListener() {
+        delete_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean pick = true;
-                if(pick == true){
-                    if(!checkCameraPermission()){
-                        requestCameraPermission();
-                    } else PickImage();
-                }else{
-                    if(!checkStoragePermission()){
-                        requestStoragePermission();
-                    } else PickImage();
-                }
+                showAlertDialog();
+                //startActivity(new Intent(getActivity(), OnboardingScreen.class));
+                //getActivity().finish();
 
             }
-        });*/
-
-
+        });
         return view;
     }
 
-    /*private boolean checkCameraPermission(){
-        boolean res1 = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED;
-        boolean res2 = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED;
-        return res1 && res2;
+
+    private void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Delete User Account?");
+        builder.setMessage("Do you really want to delete your profile and related data?");
+
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                deleteUserData(userID);
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.red));
+            }
+        });
+        alertDialog.show();
     }
 
-    private boolean checkStoragePermission(){
-        boolean res2 = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED;
-        return res2;
+    private void deleteUser(FirebaseUser firebaseUser) {
+        firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    mAuth.signOut();
+                    startActivity(new Intent(getActivity(), OnboardingScreen.class));
+                    getActivity().finish();
+                } else {
+                    Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
     }
 
-    private void requestCameraPermission(){
-        ;
-    }*/
+    private void deleteUserData(String userID){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements").child(userID);
+        databaseReference.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                deleteUser(firebaseUser);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_LONG).show();
+            }
+        });
 
+    }
 
 }
