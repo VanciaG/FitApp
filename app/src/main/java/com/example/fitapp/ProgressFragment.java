@@ -1,6 +1,5 @@
 package com.example.fitapp;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -12,9 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
@@ -26,14 +23,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Month;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -41,17 +39,18 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.time.LocalDate;
+
 
 public class ProgressFragment extends Fragment {
     private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    HashMap<String,String> hashMap = new LinkedHashMap<>();
-    HashMap<String,String> sterg = new LinkedHashMap<>();
-    Map<Date, String> map = new TreeMap<>();
+    private HashMap<String,String> hashMap = new LinkedHashMap<>();
+    //HashMap<String,String> sterg = new LinkedHashMap<>();
+    private Map<Date, String> map = new TreeMap<>();
     private ListView listView;
     private GraphView graphView;
     private LineGraphSeries<DataPoint> series;
     private Spinner spinner;
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -62,40 +61,31 @@ public class ProgressFragment extends Fragment {
         listView = view.findViewById(R.id.listEntries);
         graphView = view.findViewById(R.id.graph);
         spinner = view.findViewById(R.id.spinner);
-        //spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
+        /*spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
         String[] date_range = getResources().getStringArray(R.array.progress_graph);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, date_range);
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setSelection(Adapter.NO_SELECTION, true);*/
 
-        showWeights(userID);
+        readWeights(userID);
 
         graphView.getViewport().setXAxisBoundsManual(true);
-        graphView.getViewport().setMinX(0);
-        graphView.getViewport().setMaxX(3);
+
         graphView.getViewport().setScrollable(true);
-
-
-        spinner.setSelection(Adapter.NO_SELECTION, true);
-
-        LocalDate currentdate = LocalDate.now();
-        Month currentMonth = currentdate.getMonth();
-        Log.d("ceva","luna " + currentMonth);
 
         return view;
     }
 
-    private void showWeights(String userID){
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM");
+    private void readWeights(String userID){
+        //SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM");
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements").child(userID);
         databaseReference.keepSynced(true);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.getValue() != null) {
@@ -113,36 +103,12 @@ public class ProgressFragment extends Fragment {
 
                     for (Map.Entry<Date, String> entry : map.entrySet()) {
                         String i = formatter.format(entry.getKey());
-                        String b = formatter1.format(entry.getKey());
+                        //String b = formatter1.format(entry.getKey());
                         hashMap.put(i, entry.getValue());
-                        sterg.put(b, entry.getValue());
+                        //sterg.put(b, entry.getValue());
                     }
 
-
-                    Log.d("ceva", "streg" + sterg);
-
-                    //nu merge daca il pun inafara functiei
-                    List<HashMap<String,String>> listItems = new ArrayList<>();
-                    SimpleAdapter adapter = new SimpleAdapter(getActivity(), listItems, R.layout.list_item,
-                            new String[]{"First Line", "Second Line"},
-                            new int[]{R.id.weights, R.id.dates});
-
-                    Iterator it = hashMap.entrySet().iterator();
-                    while(it.hasNext()){
-                        HashMap<String,String> resultsMap = new HashMap<>();
-                        Map.Entry pair = (Map.Entry)it.next();
-                        resultsMap.put("First Line", pair.getValue().toString() + " kg");
-                        resultsMap.put("Second Line", pair.getKey().toString());
-                        listItems.add(resultsMap);
-
-                    }
-                    listView.setAdapter(adapter);
-
-                    series= new LineGraphSeries<>(getDataPoint());
-                    graphView.addSeries(series);
-
-
-
+                        showWeights();
                 }
             }
 
@@ -153,53 +119,101 @@ public class ProgressFragment extends Fragment {
         });
     }
 
-    /*public void onStart(){
-        super.onStart();
 
-    }*/
+    private void showWeights(){
+        List<HashMap<String,String>> listItems = new ArrayList<>();
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(), listItems, R.layout.list_item,
+                new String[]{"First Line", "Second Line"},
+                new int[]{R.id.weights, R.id.dates});
 
-    private DataPoint[] getDataPoint(){
-        /*for (Map.Entry<String, String> entry : dates.entrySet()) {
-            int i = entry.getKey();
-            int b = entry.getKey();
-            DataPoint[] dp = new DataPoint[]{new DataPoint(i, b)};
+        Iterator it = hashMap.entrySet().iterator();
+        while(it.hasNext()){
+            HashMap<String,String> resultsMap = new HashMap<>();
+            Map.Entry pair = (Map.Entry)it.next();
+            resultsMap.put("First Line", pair.getValue().toString() + " kg");
+            resultsMap.put("Second Line", pair.getKey().toString());
+            listItems.add(resultsMap);
 
-        }*/
+        }
+        listView.setAdapter(adapter);
 
-        DataPoint[] dp = new DataPoint[]{
-                new DataPoint(0,86),
-                new DataPoint(1,75),
-                new DataPoint(2,81),
-                new DataPoint(3,80),
-                new DataPoint(6,73),
-                new DataPoint(9,82),
-                new DataPoint(12,75)
-        };
-        return dp;
+        showGraph();
+
+    }
+
+
+    private void showGraph(){
+        SimpleDateFormat formatter1 = new SimpleDateFormat("dd.MM");
+        ArrayList<DataPoint> dp = new ArrayList<>();
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        Calendar cal3 = Calendar.getInstance();
+        cal1.setTime(new Date());
+        cal3.add(Calendar.MONTH, -2); //din ultima luna
+        int i=0, b;
+        double x =0 ;
+        Date date;
+
+        for (Map.Entry<Date, String> entry : map.entrySet()) {
+            cal2.setTime(entry.getKey());
+            if(cal3.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) {
+                if(cal3.get(Calendar.MONTH) == cal2.get(Calendar.MONTH)) {
+                    //Log.d("ceva", "dates din luna asta " + formatter1.format(cal2.getTime()));
+                    //date = cal2.getTime();
+                    String g = formatter1.format(cal2.getTime());
+                    x= Double.parseDouble(g);
+                    //Log.d("ceva", " x " + date);
+                    b = Integer.parseInt(entry.getValue());
+                    dp.add(new DataPoint(x,b));
+                    Log.d("ceva", " x " + dp);
+                }
+            }
+        }
+
+
+        graphView.getViewport().setMinX(15);
+        graphView.getViewport().setMaxX(x);
+
+        DataPoint[] d = new DataPoint[dp.size()];
+        d = dp.toArray(d);
+        series= new LineGraphSeries<>(d);
+        graphView.addSeries(series);
+
+        /*graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter(){
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+                if(isValueX){
+                    return formatter1.format(new Date ((long)value));
+                }else{
+                    return super.formatLabel(value,isValueX);
+                }
+            }
+        });*/
+
+
+
+
     }
 
     private void fct(){
-        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d("ceva", "intra");
-                String text = adapterView.getSelectedItem().toString();
+        spinner.setOnItemClickListener((adapterView, view, i, l) -> {
+            Log.d("ceva", "intra");
+            String text = adapterView.getSelectedItem().toString();
 
-                Log.d("ceva", "aicc " + text);
-                switch (text) {
-                    case "1 Week":
-                        Toast.makeText(getActivity(), "1 Week", Toast.LENGTH_LONG).show();
-                        break;
-                    case "1 Month":
-                        Toast.makeText(getActivity(), "1 Month", Toast.LENGTH_LONG).show();
-                        break;
-                    case "2 Months":
-                        Toast.makeText(getActivity(), "2 Months", Toast.LENGTH_LONG).show();
-                        break;
-                    case "1 Year":
-                        Toast.makeText(getActivity(), "1 Year", Toast.LENGTH_LONG).show();
-                        break;
-                }
+            Log.d("ceva", "aicc " + text);
+            switch (text) {
+                case "1 Week":
+                    Toast.makeText(getActivity(), "1 Week", Toast.LENGTH_LONG).show();
+                    break;
+                case "1 Month":
+                    Toast.makeText(getActivity(), "1 Month", Toast.LENGTH_LONG).show();
+                    break;
+                case "2 Months":
+                    Toast.makeText(getActivity(), "2 Months", Toast.LENGTH_LONG).show();
+                    break;
+                case "1 Year":
+                    Toast.makeText(getActivity(), "1 Year", Toast.LENGTH_LONG).show();
+                    break;
             }
         });
     }
