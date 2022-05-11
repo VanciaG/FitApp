@@ -53,6 +53,9 @@
     <string name="calculate_water">Calculate</string>
     <string name="alert_setting">Alert Setting</string>
     <string name="notification">Notification On/Off</string>
+    <string name="progress">Progress</string>
+    <string name="weightProgress">Weight Progress</string>
+    <string name="entries">Entries</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

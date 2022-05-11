@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -57,14 +56,14 @@ public class MainScreen extends AppCompatActivity {
         //bundle.putString("username", name);
 
 
-        loadFragment(new HomeFragment());
+        loadFragment(new ProgressFragment());
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home:
-                        loadFragment(new HomeFragment());
+                    case R.id.progress:
+                        loadFragment(new ProgressFragment());
                         break;
                     case R.id.workouts:
                         loadFragment(new WorkoutsFragment());

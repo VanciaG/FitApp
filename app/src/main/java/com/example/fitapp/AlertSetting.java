@@ -30,7 +30,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class AlertSetting extends AppCompatActivity {
@@ -41,7 +40,8 @@ public class AlertSetting extends AppCompatActivity {
     private PendingIntent pendingIntent;
     private SwitchCompat switchCompat;
     private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+    SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
+    SimpleDateFormat f12Hours = new SimpleDateFormat("hh:mm aa");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +84,6 @@ public class AlertSetting extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences(userID, MODE_PRIVATE);
         switchCompat.setChecked(prefs.getBoolean("value", true));
-        SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
-        SimpleDateFormat f12Hours = new SimpleDateFormat("hh:mm aa");
-
 
         switchCompat.setOnClickListener(new View.OnClickListener() {
             @Override

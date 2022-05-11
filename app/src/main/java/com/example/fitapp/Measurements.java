@@ -58,12 +58,7 @@ public class Measurements extends AppCompatActivity {
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements").child(userID);
 
-
-
-
         lastUpdate(userID);
-
-
 
         addMeasurementsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
