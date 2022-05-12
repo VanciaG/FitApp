@@ -24,7 +24,7 @@
             android:layout_marginTop="130dp"
             app:cardCornerRadius="30dp"
             android:layout_marginBottom="-30dp"
-            app:cardBackgroundColor="@color/dark_blue">
+            app:cardBackgroundColor="#1F1B24">
 
             <TextView
                 android:id="@+id/userName"
@@ -61,7 +61,7 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:background="@drawable/buttons"
-                android:backgroundTint="#32116b"
+                android:backgroundTint="@color/purple_500"
                 android:drawableStart="@drawable/ic_balance"
                 android:drawableEnd="@drawable/ic_arrow"
                 />
@@ -81,7 +81,7 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:background="@drawable/buttons"
-                android:backgroundTint="#32116b"
+                android:backgroundTint="@color/purple_500"
                 android:drawableStart="@drawable/ic_person"
                 android:drawableEnd="@drawable/ic_arrow"
                 />

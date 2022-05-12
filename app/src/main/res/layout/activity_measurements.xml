@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="#222222"
     android:orientation="vertical"
     android:id="@+id/container_measurements"
     tools:context=".Measurements">
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:orientation="horizontal"
-        android:background="@color/dark_blue">
+        android:background="#121212">
 
         <TextView
             android:id="@+id/back_personal_info"
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             app:cardCornerRadius="20dp"
-            android:backgroundTint="#32116b">
+            android:backgroundTint="#1F1B24">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             app:cardCornerRadius="20dp"
-            android:backgroundTint="#32116b"
+            android:backgroundTint="#1F1B24"
             android:layout_marginTop="20dp">
 
         <TextView
@@ -142,7 +142,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             app:cardCornerRadius="20dp"
-            android:backgroundTint="#32116b"
+            android:backgroundTint="#1F1B24"
             android:layout_marginTop="20dp">
 
             <TextView

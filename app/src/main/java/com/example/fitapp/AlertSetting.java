@@ -144,7 +144,6 @@ public class AlertSetting extends AppCompatActivity {
             alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         }
-
         alarmManager.cancel(pendingIntent);
         Toast.makeText(AlertSetting.this, "Alarm canceled!", Toast.LENGTH_SHORT).show();
 

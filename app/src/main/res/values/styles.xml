@@ -6,4 +6,10 @@
     </style>
 
 
+    <!-- color for switch -->
+    <style name="mySwitch">
+        <item name="android:colorControlActivated">@color/black</item>
+    </style>
+
+
 </resources>
