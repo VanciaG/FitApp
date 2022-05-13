@@ -1,10 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="progress_graph">
-        <item>1 Week</item>
-        <item>1 Month</item>
-        <item>2 Months</item>
-        <item>1 Year</item>
+    <string-array name="workouts_title">
+        <item>Full Body Toning</item>
+        <item>Upper Body Workout</item>
+        <item>Lower Body Workout</item>
+        <item>Full Body Toning</item>
+        <item>Upper Body Workout</item>
+        <item>Lower Body Workout</item>
+        <item>Full Body Toning</item>
+        <item>Upper Body Workout</item>
+        <item>Lower Body Workout</item>
     </string-array>
+
+
+    <string-array name="workouts_equipment">
+        <item>No equipment</item>
+        <item>Dumbbell</item>
+        <item>No equipment</item>
+        <item>Dumbbell</item>
+        <item>No equipment</item>
+        <item>Dumbbell</item>
+        <item>No equipment</item>
+        <item>Dumbbell</item>
+        <item>No equipment</item>
+    </string-array>
+
+    <string-array name="workouts_description">
+        <item>badbjwbjakbwkd</item>
+        <item>kwduwgudguwdu</item>
+        <item>ojjaojaa</item>
+        <item>bcabcxban</item>
+        <item>badbjwbjakbwkd</item>
+        <item>kwduwguwwwwwdguwdu</item>
+        <item>ojjaovvvvvjaa</item>
+        <item>bcabcxooooban</item>
+        <item>bcabcxaksdkaban</item>
+    </string-array>
+
+    <string-array name="workouts_level">
+        <item>Beginner</item>
+        <item>Beginner</item>
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Intermediate</item>
+        <item>Intermediate</item>
+        <item>Advanced</item>
+        <item>Advanced</item>
+        <item>Advanced</item>
+    </string-array>
+
+    <string-array name="workouts_time">
+        <item>37 minutes</item>
+        <item>30 minutes</item>
+        <item>45 minutes</item>
+        <item>75 minutes</item>
+        <item>60 minutes</item>
+        <item>30 minutes</item>
+        <item>19 minutes</item>
+        <item>25 minutes</item>
+        <item>35 minutes</item>
+    </string-array>
+
+    <string-array name="exercisesName_list1">
+        <item>a1</item>
+        <item>a2</item>
+        <item>a3</item>
+        <item>a4</item>
+        <item>a5</item>
+    </string-array>
+
+    <string-array name="exercisesName_list2">
+        <item>b1</item>
+        <item>b2</item>
+        <item>b3</item>
+        <item>b4</item>
+        <item>b5</item>
+    </string-array>
+
+    <string-array name="exercisesName_list3">
+        <item>c1</item>
+        <item>c2</item>
+        <item>c3</item>
+        <item>c4</item>
+        <item>c5</item>
+    </string-array>
+
+    <string-array name="exercisesName_list4">
+        <item>d1</item>
+        <item>d2</item>
+        <item>d3</item>
+        <item>d4</item>
+        <item>d5</item>
+    </string-array>
+
+
+    <string-array name="exercisesName_list5">
+        <item>e1</item>
+        <item>e2</item>
+        <item>e3</item>
+        <item>e4</item>
+        <item>e5</item>
+    </string-array>
+
+
+    <string-array name="exercisesName_list6">
+        <item>f1</item>
+        <item>f2</item>
+        <item>f3</item>
+        <item>f4</item>
+        <item>f5</item>
+    </string-array>
+
+    <string-array name="exercisesName_list7">
+        <item>g1</item>
+        <item>g2</item>
+        <item>g3</item>
+        <item>g4</item>
+        <item>g5</item>
+    </string-array>
+
+    <string-array name="exercisesName_list8">
+        <item>h1</item>
+        <item>h2</item>
+        <item>h3</item>
+        <item>h4</item>
+        <item>h5</item>
+    </string-array>
+
+    <string-array name="exercisesName_list9">
+        <item>i1</item>
+        <item>i2</item>
+        <item>i3</item>
+        <item>i4</item>
+        <item>i5</item>
+    </string-array>
+
+    <string-array name="reps_list1">
+        <item>a11</item>
+        <item>a22</item>
+        <item>a33</item>
+        <item>a44</item>
+        <item>a55</item>
+    </string-array>
+
+    <string-array name="reps_list2">
+        <item>b11</item>
+        <item>b22</item>
+        <item>b33</item>
+        <item>b44</item>
+        <item>b55</item>
+    </string-array>
+
+    <string-array name="reps_list3">
+        <item>c11</item>
+        <item>c22</item>
+        <item>c33</item>
+        <item>c44</item>
+        <item>c55</item>
+    </string-array>
+
+    <string-array name="reps_list4">
+        <item>d11</item>
+        <item>d22</item>
+        <item>d33</item>
+        <item>d44</item>
+        <item>d55</item>
+    </string-array>
+
+    <string-array name="reps_list5">
+        <item>e11</item>
+        <item>e22</item>
+        <item>e33</item>
+        <item>e44</item>
+        <item>e55</item>
+    </string-array>
+
+    <string-array name="reps_list6">
+        <item>f11</item>
+        <item>f22</item>
+        <item>f33</item>
+        <item>f44</item>
+        <item>f55</item>
+    </string-array>
+
+
+    <string-array name="reps_list7">
+        <item>g11</item>
+        <item>g22</item>
+        <item>g33</item>
+        <item>g44</item>
+        <item>g55</item>
+    </string-array>
+
+    <string-array name="reps_list8">
+        <item>h11</item>
+        <item>h22</item>
+        <item>h33</item>
+        <item>h44</item>
+        <item>h55</item>
+    </string-array>
+
+    <string-array name="reps_list9">
+        <item>i11</item>
+        <item>i22</item>
+        <item>i33</item>
+        <item>i44</item>
+        <item>i55</item>
+    </string-array>
+
+
 </resources>
