@@ -16,8 +16,8 @@
 
     <string-array name="workouts_equipment">
         <item>No equipment</item>
-        <item>Dumbbell</item>
-        <item>No equipment</item>
+        <item>Band</item>
+        <item>Band</item>
         <item>Dumbbell</item>
         <item>No equipment</item>
         <item>Dumbbell</item>
@@ -63,35 +63,35 @@
     </string-array>
 
     <string-array name="exercisesName_list1">
-        <item>a1</item>
-        <item>a2</item>
-        <item>a3</item>
-        <item>a4</item>
-        <item>a5</item>
+        <item>Jumping Jack</item>
+        <item>Flat Knee Raise</item>
+        <item>Single Leg Bridge</item>
+        <item>High Knee Skips</item>
+        <item>Bicycle Crunch</item>
     </string-array>
 
     <string-array name="exercisesName_list2">
-        <item>b1</item>
-        <item>b2</item>
-        <item>b3</item>
-        <item>b4</item>
-        <item>b5</item>
+        <item>Superman</item>
+        <item>Push Up (Knees)</item>
+        <item>Bent Over Row</item>
+        <item>Push Up</item>
+        <item>Hammer Curl</item>
     </string-array>
 
     <string-array name="exercisesName_list3">
-        <item>c1</item>
-        <item>c2</item>
-        <item>c3</item>
-        <item>c4</item>
-        <item>c5</item>
+        <item>Lunge</item>
+        <item>Squat</item>
+        <item>Straight Leg Deadlift</item>
+        <item>Single Leg Bridge</item>
+        <item>Squat (Band)</item>
     </string-array>
 
     <string-array name="exercisesName_list4">
-        <item>d1</item>
-        <item>d2</item>
-        <item>d3</item>
-        <item>d4</item>
-        <item>d5</item>
+        <item>Squat (Dumbbell)</item>
+        <item>Deadlift (Dumbbell)</item>
+        <item>Cross Body Crunch</item>
+        <item>Push Up</item>
+        <item>Flat Knee Raise</item>
     </string-array>
 
 
@@ -137,35 +137,35 @@
     </string-array>
 
     <string-array name="reps_list1">
-        <item>a11</item>
-        <item>a22</item>
-        <item>a33</item>
-        <item>a44</item>
-        <item>a55</item>
+        <item>3 sets x 10 reps</item>
+        <item>3 sets x 8 reps</item>
+        <item>4 sets x 10 reps</item>
+        <item>2 sets x 10 reps</item>
+        <item>4 sets x 15 reps</item>
     </string-array>
 
     <string-array name="reps_list2">
-        <item>b11</item>
-        <item>b22</item>
-        <item>b33</item>
-        <item>b44</item>
-        <item>b55</item>
+        <item>3 sets x 10 reps</item>
+        <item>2 sets x 8 reps</item>
+        <item>3 sets x 10 reps</item>
+        <item>2 sets x 8 reps</item>
+        <item>3 sets x 10 reps</item>
     </string-array>
 
     <string-array name="reps_list3">
-        <item>c11</item>
-        <item>c22</item>
-        <item>c33</item>
-        <item>c44</item>
-        <item>c55</item>
+        <item>3 sets x 10 reps</item>
+        <item>2 sets x 8 reps</item>
+        <item>4 sets x 10 reps</item>
+        <item>3 sets x 8 reps</item>
+        <item>4 sets x 10 reps</item>
     </string-array>
 
     <string-array name="reps_list4">
-        <item>d11</item>
-        <item>d22</item>
-        <item>d33</item>
-        <item>d44</item>
-        <item>d55</item>
+        <item>4 sets x 10 reps</item>
+        <item>3 sets x 10 reps</item>
+        <item>4 sets x 8 reps</item>
+        <item>2 sets x 8 reps</item>
+        <item>3 sets x 10 reps</item>
     </string-array>
 
     <string-array name="reps_list5">
@@ -207,6 +207,79 @@
         <item>i33</item>
         <item>i44</item>
         <item>i55</item>
+    </string-array>
+
+    <string-array name="desc_list1">
+        <item>a111</item>
+        <item>a222</item>
+        <item>a333</item>
+        <item>a444</item>
+        <item>a555</item>
+    </string-array>
+
+    <string-array name="desc_list2">
+        <item>b111</item>
+        <item>b222</item>
+        <item>b333</item>
+        <item>b444</item>
+        <item>b555</item>
+    </string-array>
+
+    <string-array name="desc_list3">
+        <item>c111</item>
+        <item>c222</item>
+        <item>c333</item>
+        <item>c444</item>
+        <item>c555</item>
+    </string-array>
+
+    <string-array name="desc_list4">
+        <item>d111</item>
+        <item>d222</item>
+        <item>d333</item>
+        <item>d444</item>
+        <item>d555</item>
+    </string-array>
+
+    <string-array name="desc_list5">
+        <item>e111</item>
+        <item>e222</item>
+        <item>e333</item>
+        <item>e444</item>
+        <item>e555</item>
+    </string-array>
+
+    <string-array name="desc_list6">
+        <item>f111</item>
+        <item>f222</item>
+        <item>f333</item>
+        <item>f444</item>
+        <item>f555</item>
+    </string-array>
+
+
+    <string-array name="desc_list7">
+        <item>g111</item>
+        <item>g222</item>
+        <item>g333</item>
+        <item>g444</item>
+        <item>g555</item>
+    </string-array>
+
+    <string-array name="desc_list8">
+        <item>h111</item>
+        <item>h222</item>
+        <item>h333</item>
+        <item>h444</item>
+        <item>h555</item>
+    </string-array>
+
+    <string-array name="desc_list9">
+        <item>i111</item>
+        <item>i222</item>
+        <item>i333</item>
+        <item>i444</item>
+        <item>i555</item>
     </string-array>
 
 

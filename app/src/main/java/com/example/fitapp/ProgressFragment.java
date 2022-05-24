@@ -11,10 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jjoe64.graphview.DefaultLabelFormatter;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -37,6 +38,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -49,7 +51,8 @@ public class ProgressFragment extends Fragment {
     private ListView listView;
     private GraphView graphView;
     private LineGraphSeries<DataPoint> series;
-    private Spinner spinner;
+    //private Spinner spinner;
+    private TextView progress_month;
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -60,7 +63,7 @@ public class ProgressFragment extends Fragment {
 
         listView = view.findViewById(R.id.listEntries);
         graphView = view.findViewById(R.id.graph);
-        spinner = view.findViewById(R.id.spinner);
+        progress_month = view.findViewById(R.id.progress_month);
 
         /*spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
         String[] date_range = getResources().getStringArray(R.array.progress_graph);
@@ -142,6 +145,7 @@ public class ProgressFragment extends Fragment {
     }
 
 
+
     private void showGraph(){
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd.MM");
         ArrayList<DataPoint> dp = new ArrayList<>();
@@ -149,17 +153,25 @@ public class ProgressFragment extends Fragment {
         Calendar cal2 = Calendar.getInstance();
         Calendar cal3 = Calendar.getInstance();
         cal1.setTime(new Date());
-        cal3.add(Calendar.MONTH, -2); //din ultima luna
-        int i=0, b;
+        //cal3.add(Calendar.MONTH, -2); //din ultima luna
+        int b;
         double x =0 ;
-        Date date;
+        Date date = new Date();
+        boolean s = true;
+
+
+
 
         for (Map.Entry<Date, String> entry : map.entrySet()) {
+            //date = entry.get(map.keySet().toArray()[0]);
+            //Log.d("ceva", "t" + t);
             cal2.setTime(entry.getKey());
-            if(cal3.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) {
-                if(cal3.get(Calendar.MONTH) == cal2.get(Calendar.MONTH)) {
-                    //Log.d("ceva", "dates din luna asta " + formatter1.format(cal2.getTime()));
-                    //date = cal2.getTime();
+            if(cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) {
+                if(cal1.get(Calendar.MONTH) == cal2.get(Calendar.MONTH)) {
+                    if(s) {
+                        date = cal2.getTime();
+                        s = false;
+                    }
                     String g = formatter1.format(cal2.getTime());
                     x= Double.parseDouble(g);
                     //Log.d("ceva", " x " + date);
@@ -170,8 +182,12 @@ public class ProgressFragment extends Fragment {
             }
         }
 
+        cal3.setTime(date);
+        int day = cal3.get(Calendar.DAY_OF_MONTH);
 
-        graphView.getViewport().setMinX(15);
+        String month = "Progress in " + cal1.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
+        progress_month.setText(month);
+        graphView.getViewport().setMinX(day);
         graphView.getViewport().setMaxX(x);
 
         DataPoint[] d = new DataPoint[dp.size()];
@@ -195,7 +211,7 @@ public class ProgressFragment extends Fragment {
 
     }
 
-    private void fct(){
+    /*private void fct(){
         spinner.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.d("ceva", "intra");
             String text = adapterView.getSelectedItem().toString();
@@ -216,6 +232,6 @@ public class ProgressFragment extends Fragment {
                     break;
             }
         });
-    }
+    }*/
 
 }

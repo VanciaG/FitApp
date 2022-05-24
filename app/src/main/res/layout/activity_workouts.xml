@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Workouts">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:background="#121212">
+
+        <TextView
+            android:id="@+id/back_personal_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_arrow_back"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="42dp" />
+
+        <TextView
+            android:id="@+id/nameW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        tools:listitem="@layout/list_item_workout"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rest Time"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/countdown_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/start_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countdown_timer"
+            android:layout_centerHorizontal="true"
+            android:text="start"
+            />
+
+        <Button
+            android:id="@+id/reset_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countdown_timer"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@id/start_btn"
+            android:text="resert"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

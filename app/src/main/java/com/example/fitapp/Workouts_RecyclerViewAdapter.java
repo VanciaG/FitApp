@@ -14,12 +14,15 @@ import java.util.ArrayList;
 
 public class Workouts_RecyclerViewAdapter extends RecyclerView.Adapter<Workouts_RecyclerViewAdapter.MyViewHolder> {
 
+    private final RecyclerViewInterface recyclerViewInterface;
     Context context;
     ArrayList<WorkoutModel> workoutModels;
 
-    public Workouts_RecyclerViewAdapter(Context context, ArrayList<WorkoutModel> workoutModels){
+    public Workouts_RecyclerViewAdapter(Context context, ArrayList<WorkoutModel> workoutModels,
+                                        RecyclerViewInterface recyclerViewInterface){
         this.context=context;
         this.workoutModels=workoutModels;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @NonNull
@@ -28,7 +31,7 @@ public class Workouts_RecyclerViewAdapter extends RecyclerView.Adapter<Workouts_
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_workout, parent, false);
 
-        return new Workouts_RecyclerViewAdapter.MyViewHolder(view);
+        return new Workouts_RecyclerViewAdapter.MyViewHolder(view, recyclerViewInterface);
     }
 
     @Override
@@ -50,7 +53,7 @@ public class Workouts_RecyclerViewAdapter extends RecyclerView.Adapter<Workouts_
         TextView title, description, time, level, equipment;
         ImageView imageView;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
             title = itemView.findViewById(R.id.titleW);
@@ -59,6 +62,19 @@ public class Workouts_RecyclerViewAdapter extends RecyclerView.Adapter<Workouts_
             level = itemView.findViewById(R.id.level);
             equipment = itemView.findViewById(R.id.equipment_type);
             imageView = itemView.findViewById(R.id.imageView2);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recyclerViewInterface != null){
+                        int pos = getAdapterPosition();
+
+                        if(pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }
