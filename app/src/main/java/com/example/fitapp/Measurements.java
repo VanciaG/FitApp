@@ -32,7 +32,7 @@ import java.util.Map;
 public class Measurements extends AppCompatActivity {
 
     private Button addMeasurementsBtn;
-    private TextView backPersonalInfoBtn, dateW, dateH, dateP, weight, height, bodyFatPercentage;
+    private TextView backPersonalInfoBtn, dateW, dateH, dateNeck, dateWaist, dateHips, weight, height, neck, waist, hips;
     private String childKey = new String();
     public Bundle bundle = new Bundle();
 
@@ -50,10 +50,14 @@ public class Measurements extends AppCompatActivity {
         backPersonalInfoBtn = findViewById(R.id.back_personal_info);
         dateW = findViewById(R.id.date1);
         dateH = findViewById(R.id.date2);
-        dateP = findViewById(R.id.date3);
+        dateNeck = findViewById(R.id.date3);
+        dateWaist = findViewById(R.id.date4);
+        dateHips = findViewById(R.id.date5);
         weight = findViewById(R.id.weightM);
         height = findViewById(R.id.heightM);
-        bodyFatPercentage = findViewById(R.id.body_fatM);
+        neck = findViewById(R.id.bust);
+        waist = findViewById(R.id.waist);
+        hips = findViewById(R.id.hips);
 
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements").child(userID);
@@ -137,14 +141,20 @@ public class Measurements extends AppCompatActivity {
                     String date = String.valueOf(dataSnapshot.child("date").getValue());
                     String weightM = String.valueOf(dataSnapshot.child("weight").getValue());
                     String heightM = String.valueOf(dataSnapshot.child("height").getValue());
-                    String bodyFP = String.valueOf(dataSnapshot.child("bodyFatPercentage").getValue());
+                    String body_bust = String.valueOf(dataSnapshot.child("bust").getValue());
+                    String body_waist = String.valueOf(dataSnapshot.child("waist").getValue());
+                    String body_hips = String.valueOf(dataSnapshot.child("hips").getValue());
 
                     dateW.setText(date);
                     dateH.setText(date);
-                    dateP.setText(date);
+                    dateNeck.setText(date);
+                    dateWaist.setText(date);
+                    dateHips.setText(date);
                     weight.setText(weightM);
                     height.setText(heightM);
-                    bodyFatPercentage.setText(bodyFP);
+                    neck.setText(body_bust);
+                    waist.setText(body_waist);
+                    hips.setText(body_hips);
 
                 }
 

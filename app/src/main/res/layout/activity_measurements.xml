@@ -42,7 +42,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             app:cardCornerRadius="20dp"
             android:backgroundTint="#1F1B24">
 
@@ -89,7 +89,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             app:cardCornerRadius="20dp"
             android:backgroundTint="#1F1B24"
             android:layout_marginTop="20dp">
@@ -140,7 +140,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             app:cardCornerRadius="20dp"
             android:backgroundTint="#1F1B24"
             android:layout_marginTop="20dp">
@@ -148,7 +148,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bodyFatPercentage"
+                android:text="@string/neck"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:layout_marginStart="20dp"
@@ -166,7 +166,7 @@
                 android:layout_marginTop="5dp" />
 
             <TextView
-                android:id="@+id/body_fatM"
+                android:id="@+id/bust"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="--"
@@ -178,7 +178,106 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="%"
+                android:text="  cm"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:cardCornerRadius="20dp"
+            android:backgroundTint="#1F1B24"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/waist"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/date4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/waist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cm"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:cardCornerRadius="20dp"
+            android:backgroundTint="#1F1B24"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hips"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/date5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/hips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cm"
                 android:textColor="@color/light_gray"
                 android:textSize="15sp"
                 android:layout_marginStart="40dp"
@@ -190,7 +289,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addBtn"
         style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="right"
         app:cornerRadius="70dp"
         android:layout_width="60dp"

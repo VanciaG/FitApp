@@ -26,11 +26,11 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class AddMeasurements extends AppCompatActivity implements View.OnClickListener {
-    private EditText date, weight, height, bodyFatPercentage;
+    private EditText date, weight, height, neck, waist, hips;
     private DatePickerDialog picker;
     private Button saveBtn;
     private TextView backBtn;
-    private String user_weight, user_height, user_body_fat, dateMeasurements;
+    private String user_weight, user_height, user_neck, user_waist, user_hips, dateMeasurements;
     private boolean k = true;
     private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -48,7 +48,9 @@ public class AddMeasurements extends AppCompatActivity implements View.OnClickLi
         date = findViewById(R.id.date);
         weight = findViewById(R.id.weight);
         height = findViewById(R.id.height);
-        bodyFatPercentage = findViewById(R.id.body_fat);
+        neck = findViewById(R.id.bust);
+        waist = findViewById(R.id.waist);
+        hips = findViewById(R.id.hips);
         saveBtn = findViewById(R.id.saveBtn_personalInfo);
         backBtn = findViewById(R.id.back_personal_info);
 
@@ -92,13 +94,17 @@ public class AddMeasurements extends AppCompatActivity implements View.OnClickLi
         dateMeasurements = date.getText().toString();
         user_weight = weight.getText().toString().trim();
         user_height = height.getText().toString().trim();
-        user_body_fat = bodyFatPercentage.getText().toString().trim();
+        user_neck = neck.getText().toString().trim();
+        user_waist = waist.getText().toString().trim();
+        user_hips = hips.getText().toString().trim();
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("date", dateMeasurements);
         map.put("weight", user_weight);
         map.put("height", user_height);
-        map.put("bodyFatPercentage", user_body_fat);
+        map.put("neck", user_neck);
+        map.put("waist", user_waist);
+        map.put("hips", user_hips);
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("measurements").child(userID);
 

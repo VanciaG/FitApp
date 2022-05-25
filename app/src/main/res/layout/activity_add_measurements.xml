@@ -35,12 +35,12 @@
         android:layout_height="wrap_content"
         android:text="@string/date"
         android:textColor="@color/white"
-        android:textSize="15sp" />
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/date"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_input"
         android:textSize="15sp"
@@ -54,12 +54,12 @@
             android:layout_marginTop="15dp"
             android:text="Weight (kg)"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/weight"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_input"
             android:textSize="15sp"
@@ -73,12 +73,12 @@
             android:layout_marginTop="15dp"
             android:text="Height (cm)"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/height"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_input"
             android:textSize="15sp"
@@ -90,14 +90,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Body Fat Percentage (%)"
+            android:text="Neck (cm)"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
         <EditText
-            android:id="@+id/body_fat"
+            android:id="@+id/bust"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_input"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:inputType="number"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Waist (cm)"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/waist"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_input"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:inputType="number"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Hips (cm)"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/hips"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_input"
             android:textSize="15sp"
