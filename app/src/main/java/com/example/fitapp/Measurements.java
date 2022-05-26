@@ -55,7 +55,7 @@ public class Measurements extends AppCompatActivity {
         dateHips = findViewById(R.id.date5);
         weight = findViewById(R.id.weightM);
         height = findViewById(R.id.heightM);
-        neck = findViewById(R.id.bust);
+        neck = findViewById(R.id.neck);
         waist = findViewById(R.id.waist);
         hips = findViewById(R.id.hips);
 
@@ -141,7 +141,7 @@ public class Measurements extends AppCompatActivity {
                     String date = String.valueOf(dataSnapshot.child("date").getValue());
                     String weightM = String.valueOf(dataSnapshot.child("weight").getValue());
                     String heightM = String.valueOf(dataSnapshot.child("height").getValue());
-                    String body_bust = String.valueOf(dataSnapshot.child("bust").getValue());
+                    String body_neck = String.valueOf(dataSnapshot.child("neck").getValue());
                     String body_waist = String.valueOf(dataSnapshot.child("waist").getValue());
                     String body_hips = String.valueOf(dataSnapshot.child("hips").getValue());
 
@@ -152,7 +152,7 @@ public class Measurements extends AppCompatActivity {
                     dateHips.setText(date);
                     weight.setText(weightM);
                     height.setText(heightM);
-                    neck.setText(body_bust);
+                    neck.setText(body_neck);
                     waist.setText(body_waist);
                     hips.setText(body_hips);
 

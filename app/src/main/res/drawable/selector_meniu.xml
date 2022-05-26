@@ -3,7 +3,7 @@
     <item
         android:state_selected="true"
         android:drawable="@color/purple_500"
-        android:color="@color/purple_500"
+        android:color="@color/black"
         />
 
     <item

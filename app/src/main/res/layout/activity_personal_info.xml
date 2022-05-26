@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background"
     android:id="@+id/personalInfoContainer"
+    android:background="#E8E8E8"
     tools:context=".PersonalInfo">
 
     <LinearLayout
@@ -28,9 +28,9 @@
             android:layout_height="wrap_content"
             android:text="@string/personal_info"
             android:textSize="20sp"
-            android:layout_marginTop="50dp"
-            android:textColor="@color/white"
-            android:layout_marginStart="25dp" />
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="@string/gender"
         android:textSize="13sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/black" />
 
         <RadioGroup
             android:id="@+id/profile_gender"
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/your_name"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="13sp"
             android:layout_marginTop="16dp"/>
 
@@ -95,7 +95,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_input"
             android:textSize="15sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:paddingStart="15dp" />
 
         <TextView
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:text="@string/age"
             android:textSize="13sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp"/>
 
         <EditText
@@ -113,14 +113,14 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_input"
             android:textSize="15sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:paddingStart="15dp"
             android:inputType="number"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="13sp"
             android:text="@string/activityLevel"
             android:layout_marginTop="16dp" />
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/sedentary"
                 android:textSize="13sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_margin="5dp"/>
 
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lightlyActive"
                 android:textSize="13sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_margin="5dp"/>
 
@@ -157,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/moderatelyActive"
                 android:textSize="13sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_margin="5dp" />
 
@@ -167,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/veryActive"
                 android:textSize="13sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_margin="5dp"/>
 

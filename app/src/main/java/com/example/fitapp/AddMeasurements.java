@@ -48,7 +48,7 @@ public class AddMeasurements extends AppCompatActivity implements View.OnClickLi
         date = findViewById(R.id.date);
         weight = findViewById(R.id.weight);
         height = findViewById(R.id.height);
-        neck = findViewById(R.id.bust);
+        neck = findViewById(R.id.neck);
         waist = findViewById(R.id.waist);
         hips = findViewById(R.id.hips);
         saveBtn = findViewById(R.id.saveBtn_personalInfo);

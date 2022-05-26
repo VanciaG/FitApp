@@ -13,390 +13,677 @@
         android:orientation="horizontal"
         android:background="@color/dark_blue">
 
-    <TextView
-        android:id="@+id/back_personal_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_arrow_back"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp" />
+        <TextView
+            android:id="@+id/back_personal_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_arrow_back"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ideal Measurements"
-            android:textSize="20dp"
+            android:text="@string/idealMeasurements"
+            android:textSize="20sp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp" />
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
-
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="15dp"
-        android:backgroundTint="#E8E8E8"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textGender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/gender"
-                android:textSize="17sp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
 
-            <EditText
-                android:id="@+id/gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="70dp"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/textGender"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <LinearLayout
-                android:id="@+id/line1"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="2dp"
-                app:layout_constraintTop_toBottomOf="@id/gender"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/height"
-                android:background="@color/light_gray"/>
-
-            <TextView
-                android:id="@+id/heightText"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/height"
-                android:textSize="17sp"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/line1"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-
-            <EditText
-                android:id="@+id/height"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="70dp"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintStart_toEndOf="@id/heightText"
-                app:layout_constraintTop_toBottomOf="@id/gender"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" cm"
-                android:textColor="@color/purple_500"
-                android:textSize="17sp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintStart_toEndOf="@id/height"
-                app:layout_constraintTop_toBottomOf="@id/line1"
-                />
-
-            <LinearLayout
-                android:id="@+id/line2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="2dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@id/height"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/neck"
-                android:background="@color/light_gray"/>
-
-            <TextView
-                android:id="@+id/neckText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/neck"
-                android:textSize="17sp"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/line2"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-
-            <EditText
-                android:id="@+id/neck"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="17sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="182dp"
-                android:inputType="number"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toBottomOf="@id/line2"
-                app:layout_constraintStart_toEndOf="@id/neckText" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" cm"
-                android:textColor="@color/purple_500"
-                android:textSize="15sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@id/neck"
-                app:layout_constraintTop_toBottomOf="@id/line2"/>
-
-            <LinearLayout
-                android:id="@+id/line3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="2dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@id/neck"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/waist"
-                android:background="@color/light_gray"/>
-
-            <TextView
-                android:id="@+id/waistText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/waist"
-                android:textSize="17sp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/line3"
-                app:layout_constraintStart_toStartOf="parent" />
-
-
-            <EditText
-                android:id="@+id/waist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="17sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="200dp"
-                android:inputType="number"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintStart_toEndOf="@id/waistText"
-                app:layout_constraintTop_toBottomOf="@id/line3"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" cm"
-                android:textColor="@color/purple_500"
-                android:textSize="15sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@id/waist"
-                app:layout_constraintTop_toBottomOf="@id/neck"/>
-
-            <LinearLayout
-                android:id="@+id/line4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="2dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@id/waist"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/hips"
-                android:background="@color/light_gray"/>
-
-            <TextView
-                android:id="@+id/hipsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hips"
-                android:textSize="17sp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/waistText"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-
-            <EditText
-                android:id="@+id/hips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="17sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="200dp"
-                android:inputType="number"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintStart_toEndOf="@id/hipsText"
-                app:layout_constraintTop_toBottomOf="@id/waist"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" cm"
-                android:textColor="@color/purple_500"
-                android:textSize="15sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@id/hips"
-                app:layout_constraintTop_toBottomOf="@id/waist"/>
-
-            <LinearLayout
-                android:id="@+id/line5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="2dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@id/hips"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/calculate"
-                android:background="@color/light_gray"/>
-
-            <TextView
-                android:id="@+id/weightText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/current_weight"
-                android:textSize="17sp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/hipsText"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <EditText
-                android:id="@+id/weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="17sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="120dp"
-                android:inputType="number"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintStart_toEndOf="@id/weightText"
-                app:layout_constraintTop_toBottomOf="@id/hips"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" kg"
-                android:textColor="@color/purple_500"
-                android:textSize="15sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@id/weight"
-                app:layout_constraintTop_toBottomOf="@id/hips"/>
-
-            <Button
-            android:id="@+id/calculate"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:text="@string/calculate_water"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:background="@drawable/btn_login"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintTop_toBottomOf="@id/weightText"
-            app:layout_constraintStart_toEndOf="@id/weightText"/>
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="20dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/results"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/results"
-                android:textSize="17sp"
-                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp"
+                android:backgroundTint="#E8E8E8"
                 android:layout_marginStart="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp">
 
-            <LinearLayout
-                android:id="@+id/line6"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textGender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/gender"
+                            android:textSize="15sp"
+                            android:layout_marginTop="15dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="150dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@android:color/transparent" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/heightText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/height"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/height"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginStart="158dp"
+                            android:background="@android:color/transparent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" cm"
+                            android:textColor="@color/purple_500"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/neckText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/neck"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/neck"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="160dp"
+                            android:inputType="number"
+                            android:background="@android:color/transparent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" cm"
+                            android:textColor="@color/purple_500"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/waistText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/waist"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/waist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="160dp"
+                            android:inputType="number"
+                            android:background="@android:color/transparent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" cm"
+                            android:textColor="@color/purple_500"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/hipsText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hips"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/hips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="170dp"
+                            android:inputType="number"
+                            android:background="@android:color/transparent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" cm"
+                            android:textColor="@color/purple_500"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/weightText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/current_weight"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="100dp"
+                            android:inputType="number"
+                            android:background="@android:color/transparent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" kg"
+                            android:textColor="@color/purple_500"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/calculate"
+                        android:layout_width="110dp"
+                        android:layout_height="40dp"
+                        android:text="@string/calculate_water"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_login"
+                        android:layout_marginTop="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="15dp" />
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="2dp"
-                app:layout_constraintTop_toBottomOf="@id/results"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@color/light_gray"/>
-
-            <TextView
-                android:id="@+id/idealWeightText"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ideal_weight"
-                android:textSize="17sp"
-                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp"
+                android:backgroundTint="#D4D4D4"
                 android:layout_marginStart="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/line6"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
 
-            <EditText
-                android:id="@+id/idealWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
-                android:textColor="@color/black"
-                android:backgroundTint="@android:color/holo_red_light"
-                app:layout_constraintTop_toBottomOf="@id/line6"
-                app:layout_constraintStart_toEndOf="@id/idealWeightText"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/bmi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="15dp"
-                android:textSize="15sp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/idealWeight"
-                app:layout_constraintStart_toStartOf="parent"
-                />
+                    <TextView
+                        android:id="@+id/results"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/results"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="@color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/line6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/bmiText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bmiText"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/bmi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="20dp"
+                            android:background="@android:color/transparent"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/weightTypeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/interpretationResults"
+                            android:textSize="15sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/weightType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@android:color/transparent"/>
+
+                    </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:id="@+id/line7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
 
-    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/idealWeightText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ideal_weight"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/idealWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" kg"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/bodyFatText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bfpText"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/bodyFat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" %"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/bodyFatMassText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bfmText"
+                            android:textSize="15sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/bodyFatMass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" kg"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/BodyFatText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/interpretationResults"
+                            android:textSize="15sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/bodyFatType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@android:color/transparent"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/line9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/light_gray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/leanBodyMassText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbmText"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/leanBodyMass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" kg"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

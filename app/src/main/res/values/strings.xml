@@ -62,8 +62,22 @@
     <string name="waist">Waist</string>
     <string name="hips">Hips</string>
     <string name="current_weight">Current Weight</string>
-    <string name="ideal_weight">Your Ideal Weight Is</string>
+    <string name="ideal_weight">Your Ideal Weight is</string>
     <string name="results">Results: </string>
+    <string name="bmiText">Your Body Mass Index is </string>
+    <string name="bfpText">Your Body Fat Percentage is </string>
+    <string name="bfmText">Your Body Fat Mass is </string>
+    <string name="lbmText">Your Lean Body Mass is </string>
+    <string name="interpretationResults">This is considered </string>
+    <string name="essentialFat">Essential fat</string>
+    <string name="athletes">Athletes</string>
+    <string name="fitness">Fitness</string>
+    <string name="average">Average</string>
+    <string name="obese">Obese</string>
+    <string name="underweight">Underweight</string>
+    <string name="normal">Normal</string>
+    <string name="overweight">Overweight</string>
+    <string name="idealMeasurements">Ideal Measurements</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

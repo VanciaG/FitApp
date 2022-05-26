@@ -24,7 +24,7 @@
             android:layout_marginTop="130dp"
             app:cardCornerRadius="30dp"
             android:layout_marginBottom="-30dp"
-            app:cardBackgroundColor="#1F1B24">
+            app:cardBackgroundColor="#D4D4D4">
 
             <TextView
                 android:id="@+id/userName"
@@ -32,13 +32,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/user_name"
                 android:textSize="23sp"
-                android:textColor="@color/light_gray"
+                android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"/>
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="360dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="90dp">
 
             <LinearLayout
