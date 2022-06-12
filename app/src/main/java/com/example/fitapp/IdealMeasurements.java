@@ -31,7 +31,7 @@ public class IdealMeasurements extends AppCompatActivity {
 
     private Button calculateIdealWeightBtn;
     private String childKey, weight, height, gender, neck, waist, hips, age;
-    private EditText heightM, genderM, neckM, waistM, hipsM, currentWeight, idealWeight, weightType, bmi, bodyFat, bodyFatMass, bodyFatType, leanBodyMass;
+    private EditText heightM, genderM, neckM, waistM, hipsM, currentWeight, idealWeight, normalRange, weightType, bmi, bodyFat, bodyFatMass, bodyFatType, leanBodyMass;
     private static final int INCH_PER_FEET = 12;
     private static final int MIN_HEIGHT_FEET = 5;
     private static final double KG_PER_EVERY_INCH = 2.3;
@@ -61,6 +61,7 @@ public class IdealMeasurements extends AppCompatActivity {
         hipsM = findViewById(R.id.hips);
         currentWeight = findViewById(R.id.weight);
         idealWeight = findViewById(R.id.idealWeight);
+        normalRange = findViewById(R.id.weightRange);
         bmi = findViewById(R.id.bmi);
         weightType = findViewById(R.id.weightType);
         bodyFat = findViewById(R.id.bodyFat);
@@ -70,13 +71,18 @@ public class IdealMeasurements extends AppCompatActivity {
 
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+
         getWeight(userID);
         getData(userID);
+
+        Log.d("ceva", "ageeeee  " + age);
+
 
         calculateIdealWeightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calculateIdealBodyWeight();
+                calculateNormalWeightRange();
                 calculateBodyMassIndex();
                 calculateBodyFatPercentageAndMass();
                 calculateLeanBodyMass();
@@ -103,6 +109,17 @@ public class IdealMeasurements extends AppCompatActivity {
         }
 
         idealWeight.setText(String.valueOf(idealBodyWeight));
+    }
+
+    private void calculateNormalWeightRange(){
+        double heightR = Double.parseDouble(height);
+        double weightMin = Math.floor(heightR * heightR/10000 * 18.5 * 10) / 10.0;
+        double weightMax = Math.floor(heightR * heightR/10000 * 24.9 * 10) / 10.0;
+        String range = weightMin + "-" + weightMax;
+
+        Log.d("ceva", "range  " + heightR*heightR);
+
+        normalRange.setText(String.valueOf(range));
     }
 
     private void calculateBodyMassIndex(){
@@ -137,12 +154,9 @@ public class IdealMeasurements extends AppCompatActivity {
             weightType.setText(R.string.obese);
         }
 
-
-
     }
 
     private void calculateBodyFatPercentageAndMass(){
-
         double ageBFP = Double.parseDouble(age);
         double weightBFP = Double.parseDouble(weight);
         int g = 0;

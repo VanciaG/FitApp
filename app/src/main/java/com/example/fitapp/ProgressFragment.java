@@ -177,7 +177,7 @@ public class ProgressFragment extends Fragment {
                     //Log.d("ceva", " x " + date);
                     b = Integer.parseInt(entry.getValue());
                     dp.add(new DataPoint(x,b));
-                    Log.d("ceva", " x " + dp);
+                    //Log.d("ceva", " x " + dp);
                 }
             }
         }

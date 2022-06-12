@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imagini"
+        android:id="@+id/images"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
@@ -13,7 +13,7 @@
          />
 
     <TextView
-        android:id="@+id/textul"
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"

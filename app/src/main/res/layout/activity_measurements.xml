@@ -295,6 +295,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:text="+"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:backgroundTint="@color/purple_500"/>
 

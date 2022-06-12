@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SetMyWater"
-    android:background="@drawable/gradient_background">
+    android:background="#E8E8E8">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/my_weight"
                 android:textSize="13sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_input"
                 android:textSize="15sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:inputType="number"/>
 
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" kg"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginTop="16dp"/>
 
@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_quantity"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginTop="10dp"/>
 
@@ -87,7 +87,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_input"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:paddingStart="15dp"
                     android:inputType="number"/>
 
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" ml"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:layout_marginTop="16dp"/>
 
@@ -106,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/wakeup"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginTop="10dp"/>
 
@@ -117,7 +117,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_input"
                 android:textSize="15sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:focusable="false"
                 android:textAllCaps="true"/>
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/go_to_bed"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginTop="10dp"/>
 
@@ -138,7 +138,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_input"
                 android:textSize="15sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:focusable="false"
                 android:textAllCaps="true"/>
@@ -157,7 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/suggested_quantity"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="13sp"
             android:layout_marginTop="10dp"/>
 
@@ -173,7 +173,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_input"
                 android:textSize="15sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:inputType="number"/>
 
@@ -181,7 +181,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" ml"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginTop="16dp"/>
 

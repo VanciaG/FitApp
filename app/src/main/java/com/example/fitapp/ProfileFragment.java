@@ -30,7 +30,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseUser firebaseUser;
     private TextView userNameProfile;
-    private AppCompatButton personalInfoBtn, measurementsBtn, log_outBtn, delete_Btn, idealMeasuremtsBtn;
+    private AppCompatButton personalInfoBtn, measurementsBtn, log_outBtn, delete_Btn, idealMeasuremtsBtn, biologicalAgeBtn;
     private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
@@ -42,6 +42,7 @@ public class ProfileFragment extends Fragment {
         personalInfoBtn = view.findViewById(R.id.personal_info_btn);
         measurementsBtn = view.findViewById(R.id.measurements_btn);
         idealMeasuremtsBtn = view.findViewById(R.id.ideal_measurements);
+        biologicalAgeBtn = view.findViewById(R.id.biological_age);
         log_outBtn = view.findViewById(R.id.logout);
         delete_Btn = view.findViewById(R.id.delete);
         userNameProfile = view.findViewById(R.id.userName);
@@ -80,6 +81,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), IdealMeasurements.class));
+            }
+        });
+
+        biologicalAgeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), BiologicalAgeCalculator.class));
             }
         });
 

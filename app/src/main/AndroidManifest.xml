@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
+            android:name=".ResultBiologicalAge"
+            android:exported="false" />
+        <activity
+            android:name=".BiologicalAgeCalculator"
+            android:exported="false" />
+        <activity
             android:name=".IdealMeasurements"
             android:exported="false" />
         <activity

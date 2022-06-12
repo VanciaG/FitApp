@@ -24,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Pattern;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 public class Register extends AppCompatActivity {
     private TextView login_btn;
     private EditText mUserName, mEmail, mPassword, mConfirmPassword;
@@ -121,12 +123,14 @@ public class Register extends AppCompatActivity {
                         }
                     }
 
+                    String passHash = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                User user = new User (username, email , password);
+                                User user = new User (username, email , passHash);
                                 FirebaseDatabase.getInstance().getReference("users")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

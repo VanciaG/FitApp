@@ -505,6 +505,46 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/weightRangeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weight_range"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/weightRange"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" kg"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/line8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
